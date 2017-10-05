@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @user] do |f| %>
+<div class="card card-block">
+    <%= f.input :email, input_html: { class: 'boxed' } %>
+    <%= f.button :submit %>
+    <%= link_to t('views.buttons.cancel'), :back, { class: 'btn' } %>
+</div>
+<% end %>

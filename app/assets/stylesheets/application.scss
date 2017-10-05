@@ -1,0 +1,11 @@
+@import "font-awesome";
+
+.form-group.has-error span {
+    color: #FF4444;
+    font-size: 13px;
+    display: block !important;
+}
+
+.has-error .form-control {
+    border-color: #FF4444;
+}

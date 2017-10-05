@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Admin - EscamboApp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+    <body>
+        <div class="main-wrapper">
+            <div class="app sidebar-fixed header-fixed footer-fixed" id="app">
+                <% if user_signed_in? %>
+                  <%= render partial: 'layouts/admin_shared/header' %>
+                  <%= render partial: 'layouts/admin_shared/sidebar' %>
+                <% end %>
+
+                <% if notice %>
+                  <div style="margin-top: 70px; margin-bottom: -90px;">
+                    <div class="alert alert-info" role="alert" style="border-radius: 0;">
+                      <%= notice %>
+                    </div>
+                  </div>
+                <% end %>
+
+                <%= yield %>
+
+                <% if user_signed_in? %>
+                  <%= render partial: 'layouts/admin_shared/footer' %>
+                <% end %>
+            </div>
+        </div>
+    </body>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+
+</html>
